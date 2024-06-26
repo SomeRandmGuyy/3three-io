@@ -1,0 +1,1 @@
+import{ab as t}from"./entry.6e39450e.js";import{u as e}from"./AuthStore.cdc72645.js";import"./index.aad0ddd6.js";import"./tslib.es6.4057be70.js";const c=t(async o=>{if(e().checkIsAuthenticated())return"/"});export{c as default};

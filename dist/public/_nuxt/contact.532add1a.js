@@ -1,0 +1,1 @@
+import{K as o,y as a,L as n,o as c,b as r,e as s}from"./entry.6e39450e.js";const l=["innerHTML"],u={__name:"contact",setup(i){const t=o("");return a(async()=>{try{const e=await n.get("/contact.html");t.value=e.data}catch(e){console.error("Failed to load HTML content:",e)}}),(e,_)=>(c(),r("div",null,[s("div",{innerHTML:t.value},null,8,l)]))}};export{u as default};
