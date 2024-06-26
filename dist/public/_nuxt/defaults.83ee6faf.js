@@ -1,1 +1,0 @@
-import e from"./GlobalHeader.fe0eb141.js";import t from"./GlobalFooter.331e5005.js";import{a as c,o as s,b as r,l as o,x as l}from"./entry.6e39450e.js";const p={components:{GlobalHeader:e,GlobalFooter:t}};function m(u,d,f,x,i,b){const n=e,_=l("nuxt"),a=t;return s(),r("div",null,[o(n),o(_),o(a)])}const k=c(p,[["render",m]]);export{k as default};

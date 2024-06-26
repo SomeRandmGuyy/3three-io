@@ -1,1 +1,0 @@
-import{K as t,y as o,L as a,o as r,b as s,e as c}from"./entry.6e39450e.js";const i=["innerHTML"],p={__name:"pricing",setup(l){const n=t("");return o(async()=>{try{const e=await a.get("/pricing.html");n.value=e.data}catch(e){console.error("Failed to load HTML content:",e)}}),(e,_)=>(r(),s("div",null,[c("div",{innerHTML:n.value},null,8,i)]))}};export{p as default};
