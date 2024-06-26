@@ -33,12 +33,12 @@
   </div>
   <div id="app-layout" :class="[isCollapsed && 'g-sidenav-hidden']">
     <div class="min-height-300 position-absolute w-100 bg-success" />
-    <Sidenav />
+    <Sidenav v-if="isAuthenticated" />
     <main class="main-content position-relative max-height-vh-100 h-100">
-      <Navbar />
+      <Navbar v-if="isAuthenticated" />
       <slot />
-      <Footer />
-      <Configurator />
+      <Footer v-if="isAuthenticated" />
+      <Configurator v-if="isAuthenticated" />
     </main>
   </div>
 </template>
@@ -51,12 +51,13 @@ import Configurator from "~~/examples/Configurator";
 
 import { useNavStore } from "~~/stores/NavStore";
 import setTooltip from "~~/assets/js/tooltip";
+import { useAuthStore } from "~~/stores/AuthStore";
 
 const { $isDemo } = useNuxtApp();
 const navStore = useNavStore();
-const isCollapsed = computed(() => {
-  return navStore.isSidenavCollapsed;
-});
+const authStore = useAuthStore();
+const isAuthenticated = computed(() => authStore.isAuthenticated);
+const isCollapsed = computed(() => navStore.isSidenavCollapsed);
 
 onMounted(() => {
   setTooltip(navStore.bootstrap);
