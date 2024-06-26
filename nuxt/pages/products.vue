@@ -12,7 +12,7 @@
   
   onMounted(async () => {
     try {
-      const response = await axios.get('/pricing.html');
+      const response = await axios.get('/products.html');
       content.value = response.data;
     } catch (error) {
       console.error('Failed to load HTML content:', error);

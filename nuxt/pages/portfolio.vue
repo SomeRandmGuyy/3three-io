@@ -1,29 +1,27 @@
 <template>
-    <div v-html="htmlContent"></div>
+    <div>
+      <div v-html="content"></div>
+    </div>
   </template>
   
-  <script>
-  import axios from 'axios'
+  <script setup>
+  import { ref, onMounted } from 'vue';
+  import axios from 'axios';
   
-  export default {
-    name: 'PortfolioPage',
-    data() {
-      return {
-        htmlContent: ''
-      }
-    },
-    async mounted() {
-      try {
-        const response = await axios.get('http://localhost:8000/portfolio-html')
-        this.htmlContent = response.data
-      } catch (error) {
-        console.error('Failed to load HTML content:', error)
-      }
+  const content = ref('');
+  
+  onMounted(async () => {
+    try {
+      const response = await axios.get('portfolio.html');
+      content.value = response.data;
+    } catch (error) {
+      console.error('Failed to load HTML content:', error);
     }
-  }
-  </script>
+  });
   
-  <style scoped>
-  /* Add your styles here */
-  </style>
+  definePageMeta({
+    layout: 'customer',
+    public: true // Mark this page as public
+  });
+  </script>
   

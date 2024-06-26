@@ -127,6 +127,7 @@ import { required, email, helpers, minLength, sameAs } from '@vuelidate/validato
 import { getErrorMessage, isError } from "~~/helpers/errorHandler";
 import { useRouter } from "vue-router";
 import axios from 'axios';
+import { reactive, computed } from 'vue';
 
 definePageMeta({
   layout: false,

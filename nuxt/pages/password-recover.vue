@@ -14,11 +14,10 @@
                 </p>
               </div>
               <div class="card-body">
-                <form role="form">
-                  <ArgonInput id="email" type="email" placeholder="Email" aria-label="Email" />
+                <form role="form" @submit.prevent="handleRecover">
+                  <ArgonInput id="email" type="email" placeholder="Email" aria-label="Email" v-model="formData.email" />
                   <div class="text-center">
-                    <ArgonButton color="dark" variant="gradient" class="my-4 mb-2" full-width
-                      @click.prevent="handleRecover()">
+                    <ArgonButton color="dark" variant="gradient" class="my-4 mb-2" full-width>
                       Send
                     </ArgonButton>
                   </div>
@@ -34,16 +33,28 @@
     </template>
   </NuxtLayout>
 </template>
-  
+
 <script setup>
 import FooterCentered from "@/examples/Footer/Centered.vue";
+import { reactive } from "vue";
+import axios from 'axios';
+import useToast from "~~/composables/useToast";
 
 definePageMeta({
-    layout: false,
-    middleware: ["guest"],
+  layout: false,
+  middleware: ["guest"],
 });
 
-const handleRecover = () => {
-  useToast('error', 'Password reset is disabled in the demo.');
+const formData = reactive({
+  email: ''
+});
+
+const handleRecover = async () => {
+  try {
+    const response = await axios.post(`${process.env.API_BASE_URL}/password/email`, formData);
+    useToast('success', response.data.message);
+  } catch (error) {
+    useToast('error', error.response.data.message || error.message);
+  }
 }
 </script>

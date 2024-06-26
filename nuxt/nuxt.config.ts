@@ -96,6 +96,27 @@ export default defineNuxtConfig({
   vite: {
     build: {
       target: 'esnext'
+    },
+    server: {
+      port: 3001
+    }
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push(
+        { name: 'about', path: '/about', component: resolve(__dirname, 'pages/about.vue') },
+        { name: 'checkers', path: '/checkers', component: resolve(__dirname, 'pages/checkers.vue') },
+        { name: 'contact', path: '/contact', component: resolve(__dirname, 'pages/contact.vue') },
+        { name: 'home', path: '/home', component: resolve(__dirname, 'pages/home.vue') },
+        { name: 'portfolio', path: '/portfolio', component: resolve(__dirname, 'pages/portfolio.vue') },
+        { name: 'pricing', path: '/pricing', component: resolve(__dirname, 'pages/pricing.vue') },
+        { name: 'products', path: '/products', component: resolve(__dirname, 'pages/products.vue') },
+        { name: 'services', path: '/services', component: resolve(__dirname, 'pages/services.vue') },
+        { name: 'support', path: '/support', component: resolve(__dirname, 'pages/support.vue') },
+        { name: 'vm-pricing', path: '/vm-pricing', component: resolve(__dirname, 'pages/vm-pricing.vue') },
+        { name: 'web-pricing', path: '/web-pricing', component: resolve(__dirname, 'pages/web-pricing.vue') },
+        { name: 'wp-pricing', path: '/wp-pricing', component: resolve(__dirname, 'pages/wp-pricing.vue') }
+      );
     }
   }
 });
