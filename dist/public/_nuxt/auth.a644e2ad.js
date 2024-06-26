@@ -1,0 +1,1 @@
+import{ab as e,a6 as o}from"./entry.6e39450e.js";import{u as a}from"./AuthStore.cdc72645.js";import"./index.aad0ddd6.js";import"./tslib.es6.4057be70.js";const c=e((t,r)=>{if(!a().checkIsAuthenticated()&&!t.meta.public)return o("/login")});export{c as default};

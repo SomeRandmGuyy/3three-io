@@ -48,6 +48,13 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Kernel::class);
 
+// Log incoming request details for debugging CORS issues
+file_put_contents('php://stderr', print_r([
+    'method' => $_SERVER['REQUEST_METHOD'],
+    'origin' => $_SERVER['HTTP_ORIGIN'] ?? 'no origin',
+    'uri' => $_SERVER['REQUEST_URI'],
+], true));
+
 $response = $kernel->handle(
     $request = Request::capture()
 )->send();

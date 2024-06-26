@@ -1,0 +1,1 @@
+import{K as t,y as a,L as n,o as r,b as s,e as c}from"./entry.6e39450e.js";const l=["innerHTML"],p={__name:"portfolio",setup(i){const o=t("");return a(async()=>{try{const e=await n.get("portfolio.html");o.value=e.data}catch(e){console.error("Failed to load HTML content:",e)}}),(e,_)=>(r(),s("div",null,[c("div",{innerHTML:o.value},null,8,l)]))}};export{p as default};

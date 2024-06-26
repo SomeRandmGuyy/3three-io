@@ -44,6 +44,38 @@ Route::get('/services', function () {
     return response()->file(public_path('services.html'));
 });
 
+Route::get('/about', function () {
+    return response()->file(public_path('about.html'));
+});
+
+Route::get('/checkers', function () {
+    return response()->file(public_path('checkers.html'));
+});
+
+Route::get('/home', function () {
+    return response()->file(public_path('home.html'));
+});
+
+Route::get('/products', function () {
+    return response()->file(public_path('products.html'));
+});
+
+Route::get('/support', function () {
+    return response()->file(public_path('support.html'));
+});
+
+Route::get('/vm-pricing', function () {
+    return response()->file(public_path('vm-pricing.html'));
+});
+
+Route::get('/web-pricing', function () {
+    return response()->file(public_path('web-pricing.html'));
+});
+
+Route::get('/wp-pricing', function () {
+    return response()->file(public_path('wp-pricing.html'));
+});
+
 Route::prefix('v2')->middleware('json.api')->group(function () {
     Route::post('/login', LoginController::class)->name('login');
     Route::post('/register', RegisterController::class);

@@ -1,0 +1,1 @@
+import{ab as e}from"./entry.6e39450e.js";import{u as r}from"./AuthStore.cdc72645.js";import"./index.aad0ddd6.js";import"./tslib.es6.4057be70.js";const t=r();t.currentUser||await t.getProfile();const m=e(async o=>{if(t.userRole!=="admin")return"/"});export{m as default};
