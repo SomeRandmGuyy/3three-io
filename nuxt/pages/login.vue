@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout name="authentication">
     <template #navbar>
-      <NavbarAuthentication is-blur="blur border-radius-lg my-3 py-2 start-0 end-0 mx-4 shadow" btn-background="bg-gradient-success" :dark-mode="true" />
+      <NavbarAuhtentication is-blur="blur border-radius-lg my-3 py-2 start-0 end-0 mx-4 shadow" btn-background="bg-gradient-success" :dark-mode="true" />
     </template>
     <div class="page-header min-vh-100" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-basic.jpg');">
       <span class="mask bg-gradient-dark opacity-6"></span>
@@ -77,14 +77,14 @@
 
 <script setup>
 import FooterCentered from "@/examples/Footer/Centered.vue";
-import NavbarAuthentication from "@/examples/Navbar/Auhtentication.vue";
+import NavbarAuhtentication from "@/examples/Navbar/Auhtentication.vue";
 import { useAuthStore } from "~~/stores/AuthStore";
 import useToast from "~~/composables/useToast";
 import { useVuelidate } from "@vuelidate/core";
 import { required, email, helpers } from "@vuelidate/validators";
 import { getErrorMessage, isError } from "~~/helpers/errorHandler";
 import { useRouter } from "vue-router";
-import { reactive, computed } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import axios from 'axios';
 import { useRuntimeConfig } from '#app';
 
@@ -110,7 +110,18 @@ const rules = computed(() => {
 const v$ = useVuelidate(rules, formData);
 const config = useRuntimeConfig();
 
+onMounted(() => {
+  const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+  if (csrfToken) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+    console.log('CSRF token set:', csrfToken);
+  } else {
+    console.error('CSRF token not found');
+  }
+});
+
 const submitForm = async () => {
+  console.log("submitForm called");
   errorsRef.value = [];
   v$.value.$validate();
 
@@ -119,10 +130,13 @@ const submitForm = async () => {
     errorsRef.value = [...errors];
   } else {
     try {
+      console.log("Attempting to send login request with data:", formData);
       const response = await axios.post(`${config.public.apiBaseUrl}/login`, formData);
+      console.log('Login response:', response);
       authStore.setToken(response.data.token);
       router.push({ path: "/dashboards/default" });
     } catch (error) {
+      console.error('Login error:', error);
       await useToast("error", error.message);
     }
   }

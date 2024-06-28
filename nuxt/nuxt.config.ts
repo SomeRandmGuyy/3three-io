@@ -14,27 +14,27 @@ export default defineNuxtConfig({
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' },
         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css' },
         { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.6/css/all.css' },
-        { rel: 'stylesheet', href: 'css/nucleo-icons.css' },
-        { rel: 'stylesheet', href: 'css/nucleo-svg.css' },
-        { rel: 'stylesheet', href: 'css/creativetim/creativetim.min.css' }
+        { rel: 'stylesheet', href: '/css/nucleo-icons.css' },
+        { rel: 'stylesheet', href: '/css/nucleo-svg.css' },
+        { rel: 'stylesheet', href: '/css/creativetim/creativetim.min.css' }
       ],
       script: [
         { type: 'text/javascript', src: 'https://kit.fontawesome.com/42d5adcbca.js', async: true },
         { type: 'text/javascript', src: 'https://buttons.github.io/buttons.js', async: true },
-        { type: 'text/javascript', src: 'js/core/jquery.min.js' },
-        { type: 'text/javascript', src: 'js/core/popper.min.js' },
-        { type: 'text/javascript', src: 'js/core/bootstrap.min.js' },
-        { type: 'text/javascript', src: 'js/plugins/perfect-scrollbar.jquery.min.js' },
-        { type: 'text/javascript', src: 'js/plugins/bootstrap-switch.js' },
-        { type: 'text/javascript', src: 'js/plugins/nouislider.min.js' },
-        { type: 'text/javascript', src: 'js/plugins/glide.js' },
-        { type: 'text/javascript', src: 'js/plugins/moment.min.js' },
-        { type: 'text/javascript', src: 'js/plugins/choices.min.js' },
-        { type: 'text/javascript', src: 'js/plugins/datetimepicker.js' },
-        { type: 'text/javascript', src: 'js/plugins/jasny-bootstrap.min.js' },
-        { type: 'text/javascript', src: 'js/plugins/headroom.min.js' },
+        { type: 'text/javascript', src: '/js/core/jquery.min.js' },
+        { type: 'text/javascript', src: '/js/core/popper.min.js' },
+        { type: 'text/javascript', src: '/js/core/bootstrap.min.js' },
+        { type: 'text/javascript', src: '/js/plugins/perfect-scrollbar.jquery.min.js' },
+        { type: 'text/javascript', src: '/js/plugins/bootstrap-switch.js' },
+        { type: 'text/javascript', src: '/js/plugins/nouislider.min.js' },
+        { type: 'text/javascript', src: '/js/plugins/glide.js' },
+        { type: 'text/javascript', src: '/js/plugins/moment.min.js' },
+        { type: 'text/javascript', src: '/js/plugins/choices.min.js' },
+        { type: 'text/javascript', src: '/js/plugins/datetimepicker.js' },
+        { type: 'text/javascript', src: '/js/plugins/jasny-bootstrap.min.js' },
+        { type: 'text/javascript', src: '/js/plugins/headroom.min.js' },
         { type: 'text/javascript', src: 'https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE' },
-        { type: 'text/javascript', src: 'js/argon-design-system.min.js?v=1.0.2' },
+        { type: 'text/javascript', src: '/js/argon-design-system.min.js?v=1.0.2' },
         {
           type: 'text/javascript',
           innerHTML: `
@@ -84,9 +84,6 @@ export default defineNuxtConfig({
     '@/assets/scss/argon-dashboard.scss'
   ],
   modules: ['@pinia/nuxt'],
-  plugins: [
-    '~/plugins/axios.js'
-  ],
   runtimeConfig: {
     public: {
       apiBaseUrl: process.env.API_BASE_URL,

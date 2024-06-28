@@ -5,7 +5,10 @@ export default ({ $config }, inject) => {
     baseURL: $config.public.apiBaseUrl
   });
 
-  // You can set up interceptors here if needed
+  api.interceptors.request.use(config => {
+    console.log('Making request to ' + config.url);
+    return config;
+  });
 
   inject('api', api);
 }

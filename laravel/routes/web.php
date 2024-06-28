@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\V2\MeController;
 use App\Http\Controllers\Api\V2\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\V2\Auth\ResetPasswordController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\ApiController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -76,6 +78,8 @@ Route::get('/wp-pricing', function () {
     return response()->file(public_path('wp-pricing.html'));
 });
 
+Route::post('/api/login', [ApiController::class, 'login']);
+
 Route::prefix('v2')->middleware('json.api')->group(function () {
     Route::post('/login', LoginController::class)->name('login');
     Route::post('/register', RegisterController::class);
@@ -87,3 +91,9 @@ Route::prefix('v2')->middleware('json.api')->group(function () {
 Route::get('me', [MeController::class, 'readProfile']);
 Route::patch('me', [MeController::class, 'updateProfile']);
 Route::post('/uploads/{resource}/{id}/{field}', UploadController::class);
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+Route::get('/csrf-token', function () {
+    return response()->json(['csrf_token' => csrf_token()]);
+});
