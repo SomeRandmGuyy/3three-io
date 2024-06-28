@@ -1,3 +1,4 @@
+# .gitignore in laravel directory
 /node_modules
 /public/hot
 /public/storage
@@ -12,12 +13,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-/nuxt/node_modules
-/nuxt/.nuxt
-/nuxt/.nitro
-/nuxt/.cache
-/nuxt/.output
-/nuxt/dist
-/nuxt/yarn.lock
-/nuxt/pnpm-lock.yaml
-/nuxt/package-lock.json
+# Remove the following line if it exists
+# composer.lock
