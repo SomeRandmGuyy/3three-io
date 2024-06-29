@@ -83,6 +83,6 @@
     "vue3-apexcharts": "1.4.1"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "16.x"
   }
 }
