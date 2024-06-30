@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-  import MainNavbar from "@/components/layout/MainNavbar.vue";
-  import MainFooter from "@/components/layout/MainFooter.vue";
+  import MainNavbar from "@/components/layout/StarterNavbar.vue";
+  import MainFooter from "@/components/layout/StarterFooter.vue";
   export default {
     components: {
       MainFooter,

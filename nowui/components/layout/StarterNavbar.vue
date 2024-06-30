@@ -1,47 +1,101 @@
 <template>
     <navbar position="fixed"
-            type="primary"
+            :transparent="transparent"
+            :color-on-scroll="colorOnScroll"
             menu-classes="ml-auto">
-        <template slot-scope="{toggle, isToggled}">
-            <router-link v-popover:popover1 class="navbar-brand" to="/presentation">
-                My Site Name
-            </router-link>
-            <el-popover
-                    ref="popover1"
-                    popper-class="popover"
-                    placement="bottom"
-                    width="200"
-                    trigger="hover">
-                <div class="popover-body">Designed by Invision. Coded by Creative Tim</div>
-            </el-popover>
-        </template>
-        <template slot="navbar-menu">
-            <drop-down tag="li" title="Sample Dropdown">
-                <nav-link class="dropdown-item">
-                    <i class="now-ui-icons shopping_box"></i> Headers
-                </nav-link>
-            </drop-down>
-
-        </template>
+      <template slot-scope="{toggle, isToggled}">
+        <nuxt-link class="navbar-brand" to="/">3three.io</nuxt-link>
+      </template>
+      <template slot="navbar-menu">
+        <!-- Main Dropdown -->
+        <drop-down tag="li" title="Main" class="nav-item">
+          <nav-link to="#">Link 1</nav-link>
+          <nav-link to="#">Link 2</nav-link>
+          <nav-link to="#">Link 3</nav-link>
+          <nav-link to="#">Link 4</nav-link>
+          <nav-link to="#">Link 5</nav-link>
+          <nav-link to="#">Link 6</nav-link>
+        </drop-down>
+        <!-- Account Dropdown -->
+        <drop-down tag="li" title="Account" class="nav-item">
+          <nav-link to="#">Link 1</nav-link>
+          <nav-link to="#">Link 2</nav-link>
+          <nav-link to="#">Link 3</nav-link>
+        </drop-down>
+        <!-- Additional Dropdown -->
+        <drop-down tag="li" title="Additional" class="nav-item">
+          <nav-link to="#">Link 1</nav-link>
+          <nav-link to="#">Link 2</nav-link>
+          <nav-link to="#">Link 3</nav-link>
+          <nav-link to="#">Link 4</nav-link>
+          <nav-link to="#">Link 5</nav-link>
+          <nav-link to="#">Link 6</nav-link>
+        </drop-down>
+        <!-- All Dropdown -->
+        <drop-down tag="li" title="All" class="nav-item">
+          <nav-link to="#">Link 1</nav-link>
+          <nav-link to="#">Link 2</nav-link>
+          <nav-link to="#">Link 3</nav-link>
+          <nav-link to="#">Link 4</nav-link>
+          <nav-link to="#">Link 5</nav-link>
+          <nav-link to="#">Link 6</nav-link>
+          <nav-link to="#">Link 7</nav-link>
+          <nav-link to="#">Link 8</nav-link>
+          <nav-link to="#">Link 9</nav-link>
+          <nav-link to="#">Link 10</nav-link>
+          <nav-link to="#">Link 11</nav-link>
+          <nav-link to="#">Link 12</nav-link>
+          <nav-link to="#">Link 13</nav-link>
+          <nav-link to="#">Link 14</nav-link>
+          <nav-link to="#">Link 15</nav-link>
+        </drop-down>
+        <!-- Buy Now Button -->
+        <li class="nav-item">
+          <nuxt-link class="btn btn-default btn-neutral buy-now-button" to="/buy">Buy Now</nuxt-link>
+        </li>
+      </template>
     </navbar>
-</template>
-
-<script>
-  import { DropDown, NavbarToggleButton, Navbar, NavLink } from '@/components';
-  import { Popover } from 'element-ui'
-
+  </template>
+  
+  <script>
+  import { DropDown, Navbar, NavLink } from '@/components';
+  import { Popover } from 'element-ui';
+  
   export default {
     name: 'main-navbar',
+    props: {
+      transparent: Boolean,
+      colorOnScroll: Number,
+    },
     components: {
       DropDown,
       Navbar,
-      NavbarToggleButton,
       NavLink,
       [Popover.name]: Popover
     }
+  };
+  </script>
+  
+  <style scoped>
+  .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-</script>
-
-<style scoped>
-
-</style>
+  .navbar-brand {
+    font-size: 1.2rem; /* Slightly larger than other text */
+    font-weight: bold;
+  }
+  .nav-item .btn {
+    margin-left: 20px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center; /* Align dropdown titles with Buy Now button */
+  }
+  .buy-now-button {
+    background-color: #32CD32; /* Light green color */
+    opacity: 1; /* Remove opacity to make it more solid */
+    color: #ffffff; /* White text color */
+  }
+  </style>
+  
