@@ -78,68 +78,41 @@
             </div>
         </div>
 
-        <div class="testimonials-1 section-image" style="background-image: url('img/bg19.jpg')">
+        <div class="features-3">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 ml-auto mr-auto text-center">
-                        <h2 class="title">What is ALPHA?</h2>
-                        <h4 class="description text-white">If you’re selected for ALPHA you’ll also get 3 tickets,
-                            opportunity to access Investor Office Hours and Mentor Hours and much more all for
-                            €850.</h4>
+                    <div class="col-md-8 ml-auto mr-auto">
+                        <h2 class="title">Simpler. Smarter. Faster.</h2>
+                        <h4 class="description">The CloudCheckr Cloud Management Platform (CMP) provides full visibility and control to reduce costs, improve cybersecurity posture, and automate critical tasks.</h4>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <card type="testimonial">
-                            <img slot="avatar" class="img img-raised" src="img/michael.jpg">
-                            <p class="card-description">
-                                The networking at Web Summit is like no other European tech conference.
-                            </p>
-                            <template slot="raw-content">
-                                <div class="icon icon-success">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                <div class="card-footer">
-                                    <h4 class="card-title">Michael Elijah</h4>
-                                    <p class="category">@michaelelijah</p>
-                                </div>
-                            </template>
-                        </card>
+                        <div class="info info-hover">
+                            <div class="icon icon-success icon-circle">
+                                <i class="now-ui-icons objects_globe"></i>
+                            </div>
+                            <h4 class="info-title">Asset Management</h4>
+                            <p class="description">Cross-account dashboards provide sophisticated reporting for enterprise.</p>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <card type="testimonial">
-                            <img slot="avatar" class="img img-raised" src="img/olivia.jpg">
-                            <p class="card-description">
-                                The connections you make at Web Summit are unparalleled, we met users all over the
-                                world.
-                            </p>
-                            <template slot="raw-content">
-                                <div class="icon icon-success">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                <div class="card-footer">
-                                    <h4 class="card-title">Olivia Harper</h4>
-                                    <p class="category">@oliviaharper</p>
-                                </div>
-                            </template>
-                        </card>
+                        <div class="info info-hover">
+                            <div class="icon icon-info icon-circle">
+                                <i class="now-ui-icons education_atom"></i>
+                            </div>
+                            <h4 class="info-title">Resource Utilization</h4>
+                            <p class="description">CloudCheckr provides summary and detailed usage statistics for resources.</p>
+                        </div>
                     </div>
                     <div class="col-md-4">
-                        <card type="testimonial">
-                            <img slot="avatar" class="img img-raised" src="img/james.jpg">
-                            <p class="card-description">
-                                Web Summit will increase your appetite, your inspiration, and your network.
-                            </p>
-                            <template slot="raw-content">
-                                <div class="icon icon-success">
-                                    <i class="fas fa-quote-right"></i>
-                                </div>
-                                <div class="card-footer">
-                                    <h4 class="card-title">James Logan</h4>
-                                    <p class="category">@jameslogan</p>
-                                </div>
-                            </template>
-                        </card>
+                        <div class="info info-hover">
+                            <div class="icon icon-success icon-circle">
+                                <i class="now-ui-icons tech_watch-time"></i>
+                            </div>
+                            <h4 class="info-title">Self-Healing</h4>
+                            <p class="description">CloudCheckr enables users to save money, time, and effort.</p>
+                        </div>
                     </div>
                 </div>
             </div>
