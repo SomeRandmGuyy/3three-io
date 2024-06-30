@@ -11,7 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.3.4",
+    "@nuxtjs/pwa": "3.3.4",
     "bootstrap": "5.2.2",
     "cross-env": "7.0.3",
     "element-ui": "2.15.10",
@@ -26,5 +26,8 @@
   "devDependencies": {
     "babel-plugin-component": "1.1.1",
     "sass-loader": "10.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
