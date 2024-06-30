@@ -1,0 +1,9 @@
+{
+  "name": "nuxt-now-ui-kit-pro",
+  "short_name": "nuxt-now-ui-kit-pro",
+  "icons": [],
+  "start_url": "/?standalone=true",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "lang": "en"
+}

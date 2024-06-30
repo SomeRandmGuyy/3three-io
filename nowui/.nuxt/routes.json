@@ -1,0 +1,197 @@
+[
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "/apps/www/html/3three.io/nowui/pages/about.vue",
+    "chunkName": "pages/about",
+    "_name": "_fed94472"
+  },
+  {
+    "name": "blog-post",
+    "path": "/blog-post",
+    "component": "/apps/www/html/3three.io/nowui/pages/blog-post.vue",
+    "chunkName": "pages/blog-post",
+    "_name": "_3c47fa25"
+  },
+  {
+    "name": "blog-posts",
+    "path": "/blog-posts",
+    "component": "/apps/www/html/3three.io/nowui/pages/blog-posts.vue",
+    "chunkName": "pages/blog-posts",
+    "_name": "_5062eb9e"
+  },
+  {
+    "name": "components",
+    "path": "/components",
+    "component": "/apps/www/html/3three.io/nowui/pages/components.vue",
+    "chunkName": "pages/components",
+    "_name": "_34e7ac68"
+  },
+  {
+    "name": "contact",
+    "path": "/contact",
+    "component": "/apps/www/html/3three.io/nowui/pages/contact.vue",
+    "chunkName": "pages/contact",
+    "_name": "_a8a0474c"
+  },
+  {
+    "name": "demo",
+    "path": "/demo",
+    "component": "/apps/www/html/3three.io/nowui/pages/demo.vue",
+    "chunkName": "pages/demo",
+    "_name": "_2933a499"
+  },
+  {
+    "name": "ecommerce",
+    "path": "/ecommerce",
+    "component": "/apps/www/html/3three.io/nowui/pages/ecommerce.vue",
+    "chunkName": "pages/ecommerce",
+    "_name": "_cd69040c"
+  },
+  {
+    "name": "landing",
+    "path": "/landing",
+    "component": "/apps/www/html/3three.io/nowui/pages/landing.vue",
+    "chunkName": "pages/landing",
+    "_name": "_7239c25e"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/apps/www/html/3three.io/nowui/pages/login.vue",
+    "chunkName": "pages/login",
+    "_name": "_69f2dba3"
+  },
+  {
+    "name": "pricing",
+    "path": "/pricing",
+    "component": "/apps/www/html/3three.io/nowui/pages/pricing.vue",
+    "chunkName": "pages/pricing",
+    "_name": "_061f1500"
+  },
+  {
+    "name": "product",
+    "path": "/product",
+    "component": "/apps/www/html/3three.io/nowui/pages/product.vue",
+    "chunkName": "pages/product",
+    "_name": "_505785a9"
+  },
+  {
+    "name": "profile",
+    "path": "/profile",
+    "component": "/apps/www/html/3three.io/nowui/pages/profile.vue",
+    "chunkName": "pages/profile",
+    "_name": "_9851553a"
+  },
+  {
+    "name": "sections",
+    "path": "/sections",
+    "component": "/apps/www/html/3three.io/nowui/pages/sections.vue",
+    "chunkName": "pages/sections",
+    "_name": "_aedc2f38"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "/apps/www/html/3three.io/nowui/pages/signup.vue",
+    "chunkName": "pages/signup",
+    "_name": "_20c285ce"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/apps/www/html/3three.io/nowui/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_bf698ee8"
+  },
+  {
+    "name": "about",
+    "path": "/about",
+    "component": "/apps/www/html/3three.io/nowui/pages/about.vue",
+    "_name": "_fed94472"
+  },
+  {
+    "name": "blog-post",
+    "path": "/blog-post",
+    "component": "/apps/www/html/3three.io/nowui/pages/blog-post.vue",
+    "_name": "_3c47fa25"
+  },
+  {
+    "name": "blog-posts",
+    "path": "/blog-posts",
+    "component": "/apps/www/html/3three.io/nowui/pages/blog-posts.vue",
+    "_name": "_5062eb9e"
+  },
+  {
+    "name": "components",
+    "path": "/components",
+    "component": "/apps/www/html/3three.io/nowui/pages/components.vue",
+    "_name": "_34e7ac68"
+  },
+  {
+    "name": "contact",
+    "path": "/contact",
+    "component": "/apps/www/html/3three.io/nowui/pages/contact.vue",
+    "_name": "_a8a0474c"
+  },
+  {
+    "name": "ecommerce",
+    "path": "/ecommerce",
+    "component": "/apps/www/html/3three.io/nowui/pages/ecommerce.vue",
+    "_name": "_cd69040c"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/apps/www/html/3three.io/nowui/pages/index.vue",
+    "_name": "_bf698ee8"
+  },
+  {
+    "name": "demo",
+    "path": "/demo",
+    "component": "/apps/www/html/3three.io/nowui/pages/demo.vue",
+    "_name": "_2933a499"
+  },
+  {
+    "name": "landing",
+    "path": "/landing",
+    "component": "/apps/www/html/3three.io/nowui/pages/landing.vue",
+    "_name": "_7239c25e"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "/apps/www/html/3three.io/nowui/pages/login.vue",
+    "_name": "_69f2dba3"
+  },
+  {
+    "name": "pricing",
+    "path": "/pricing",
+    "component": "/apps/www/html/3three.io/nowui/pages/pricing.vue",
+    "_name": "_061f1500"
+  },
+  {
+    "name": "product",
+    "path": "/product",
+    "component": "/apps/www/html/3three.io/nowui/pages/product.vue",
+    "_name": "_505785a9"
+  },
+  {
+    "name": "profile",
+    "path": "/profile",
+    "component": "/apps/www/html/3three.io/nowui/pages/profile.vue",
+    "_name": "_9851553a"
+  },
+  {
+    "name": "sections",
+    "path": "/sections",
+    "component": "/apps/www/html/3three.io/nowui/pages/sections.vue",
+    "_name": "_aedc2f38"
+  },
+  {
+    "name": "signup",
+    "path": "/signup",
+    "component": "/apps/www/html/3three.io/nowui/pages/signup.vue",
+    "_name": "_20c285ce"
+  }
+]

@@ -26,24 +26,152 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index-html', function () {
-    return response()->file(public_path('index.html'));
+// Routes for nuxt.3three.io
+Route::prefix('nuxt')->group(function () {
+    Route::get('/index-html', function () {
+        return response()->file(public_path('nuxt/index.html'));
+    });
+
+    Route::get('/contact', function () {
+        return response()->file(public_path('nuxt/contact.html'));
+    });
+
+    Route::get('/portfolio', function () {
+        return response()->file(public_path('nuxt/portfolio.html'));
+    });
+
+    Route::get('/pricing', function () {
+        return response()->file(public_path('nuxt/pricing.html'));
+    });
+
+    Route::get('/services', function () {
+        return response()->file(public_path('nuxt/services.html'));
+    });
+
+    Route::get('/about', function () {
+        return response()->file(public_path('nuxt/about.html'));
+    });
+
+    Route::get('/products', function () {
+        return response()->file(public_path('nuxt/products.html'));
+    });
+
+    Route::get('/shop', function () {
+        return response()->file(public_path('nuxt/shop.html'));
+    });
+
+    Route::get('/vps-hosting', function () {
+        return response()->file(public_path('nuxt/vps_hosting.html'));
+    });
+
+    Route::get('/website-hosting', function () {
+        return response()->file(public_path('nuxt/website_hosting.html'));
+    });
+
+    Route::get('/wordpress-hosting', function () {
+        return response()->file(public_path('nuxt/wordpress_hosting.html'));
+    });
+
+    // Routes for Vue components
+    Route::get('/about', function () {
+        return view('nuxt.pages.about');
+    });
+
+    Route::get('/contact', function () {
+        return view('nuxt.pages.contact');
+    });
+
+    Route::get('/index', function () {
+        return view('nuxt.pages.index');
+    });
+
+    Route::get('/products', function () {
+        return view('nuxt.pages.products');
+    });
+
+    Route::get('/services', function () {
+        return view('nuxt.pages.services');
+    });
+
+    Route::get('/shop', function () {
+        return view('nuxt.pages.shop');
+    });
+
+    Route::get('/vps-hosting', function () {
+        return view('nuxt.pages.vps-hosting');
+    });
+
+    Route::get('/website-hosting', function () {
+        return view('nuxt.pages.website-hosting');
+    });
+
+    Route::get('/wordpress-hosting', function () {
+        return view('nuxt.pages.wordpress-hosting');
+    });
 });
 
-Route::get('/contact', function () {
-    return response()->file(public_path('contact.html'));
-});
+// Routes for nuxtt.3three.io
+Route::prefix('nowui')->group(function () {
+    // Routes for Vue components
+    Route::get('/about', function () {
+        return view('nowui.pages.about');
+    });
 
-Route::get('/portfolio', function () {
-    return response()->file(public_path('portfolio.html'));
-});
+    Route::get('/blog-post', function () {
+        return view('nowui.pages.blog-post');
+    });
 
-Route::get('/pricing', function () {
-    return response()->file(public_path('pricing.html'));
-});
+    Route::get('/blog-posts', function () {
+        return view('nowui.pages.blog-posts');
+    });
 
-Route::get('/services', function () {
-    return response()->file(public_path('services.html'));
+    Route::get('/components', function () {
+        return view('nowui.pages.components');
+    });
+
+    Route::get('/contact', function () {
+        return view('nowui.pages.contact');
+    });
+
+    Route::get('/ecommerce', function () {
+        return view('nowui.pages.ecommerce');
+    });
+
+    Route::get('/index', function () {
+        return view('nowui.pages.index');
+    });
+
+    Route::get('/demo', function () {
+        return view('nowui.pages.demo');
+    });
+
+    Route::get('/landing', function () {
+        return view('nowui.pages.landing');
+    });
+
+    Route::get('/login', function () {
+        return view('nowui.pages.login');
+    });
+
+    Route::get('/pricing', function () {
+        return view('nowui.pages.pricing');
+    });
+
+    Route::get('/product', function () {
+        return view('nowui.pages.product');
+    });
+
+    Route::get('/profile', function () {
+        return view('nowui.pages.profile');
+    });
+
+    Route::get('/sections', function () {
+        return view('nowui.pages.sections');
+    });
+
+    Route::get('/signup', function () {
+        return view('nowui.pages.signup');
+    });
 });
 
 Route::get('/about', function () {
