@@ -11,7 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/pwa": "^3.3.4",
     "bootstrap": "5.2.2",
     "cross-env": "7.0.3",
     "element-ui": "2.15.10",
