@@ -2,6 +2,9 @@ export default {
   // Enabling SPA mode
   mode: 'spa',
 
+  // Enabling Static Site Generation
+  target: 'static',
+
   // Headers of the page
   router: {
     base: "/",
@@ -121,6 +124,9 @@ export default {
     port: 3003, // default: 3000
     host: '0.0.0.0' // default: localhost
   },
-  // Enable Static Site Generation
-  target: 'static'
+  // Environment variables
+  env: {
+    API_BASE_URL: 'http://13.237.139.178:8000/v2',
+    PROXY_API_URL: 'http://13.237.139.178:3004'
+  }
 };

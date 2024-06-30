@@ -202,7 +202,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: app.router.options.base,
-      env: {}
+      env: {"API_BASE_URL":"http://13.237.139.178:8000/v2","PROXY_API_URL":"http://13.237.139.178:3004"}
     }
     // Only set once
 
