@@ -1,0 +1,17 @@
+[build]
+  command = "npm run generate"
+  publish = "dist"
+
+[functions]
+  directory = "functions"
+
+[context.production.environment]
+  API_BASE_URL = "http://13.237.139.178:8000/v2"
+  PROXY_API_URL = "http://13.237.139.178:3004"
+  NUXT_ENV_API_BASE_URL = "http://13.237.139.178:8000/v2"
+  NUXT_ENV_PROXY_API_URL = "http://13.237.139.178:3004"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
