@@ -8,7 +8,7 @@ applications:
         NODE_ENV: "production"
         NUXT_ENV_API_BASE_URL: "http://13.237.139.178:8000/v2"
         NUXT_ENV_PROXY_API_URL: "http://13.237.139.178:3002"
-        PORT: "3003"
+        PORT: "3001"
         HOST: "0.0.0.0"
         DATABASE_URL: "mysql://user:password@hostname:port/dbname"
         AUTH_SECRET: "your_secret_key"
@@ -24,10 +24,10 @@ applications:
         preBuild:
           commands:
             - npm install -g nuxi
-            - npm install
+            - npm ci
         build:
           commands:
-            - npx nuxi build
+            - npx nuxi generate
       artifacts:
         baseDirectory: .output/public
         files:
@@ -58,10 +58,10 @@ applications:
       phases:
         preBuild:
           commands:
-            - npm install
+            - npm ci
         build:
           commands:
-            - npm run build
+            - npm run generate
       artifacts:
         baseDirectory: dist
         files:
