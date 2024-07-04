@@ -1,0 +1,12 @@
+# Dockerfile.nowui
+FROM node:18
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+# Use the .nuxt/index.js file as the entry point
+CMD ["node", ".nuxt/index.js"]
