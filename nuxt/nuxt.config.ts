@@ -2,6 +2,7 @@ import { defineNuxtConfig } from 'nuxt/config';
 
 export default defineNuxtConfig({
   ssr: false,
+  target: 'static',
   app: {
     head: {
       title: 'Nuxt Argon Dashboard 2 PRO Laravel by Creative Tim & UPDIVISION',

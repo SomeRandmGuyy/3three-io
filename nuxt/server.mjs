@@ -6,10 +6,10 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 const isDev = process.env.NODE_ENV !== 'production';
 
 async function start() {
-  const nuxt = await loadNuxt(isDev ? 'dev' : 'start');
+  const nuxt = await loadNuxt(isDev ? { overrides: { dev: true } } : { overrides: { dev: false } });
 
   if (isDev) {
-    build(nuxt);
+    await build(nuxt);
   }
 
   const server = createServer((req, res) => {
@@ -18,11 +18,11 @@ async function start() {
     // Proxy API requests
     if (req.url.startsWith('/v2/')) {
       createProxyMiddleware({
-        target: 'http://localhost:8000',
+        target: 'http://13.237.139.178:8000',
         changeOrigin: true,
         pathRewrite: { '^/v2/': '/' },
         onProxyReq: (proxyReq) => {
-          proxyReq.setHeader('origin', 'http://localhost:3001');
+          proxyReq.setHeader('origin', 'http://13.237.139.178:3001');
         },
         onError: (err, req, res) => {
           console.error('Proxy error:', err);
@@ -40,4 +40,6 @@ async function start() {
   });
 }
 
-start();
+start().catch((error) => {
+  console.error('Failed to start server:', error);
+});

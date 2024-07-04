@@ -59,7 +59,7 @@ export default {
     }
   },
   head: {
-    title: "Nuxt Now UI Kit PRO by Creative Tim",
+    title: "3three.io - Web Hosting, Design & Development Made Easy",
     meta: [
       { charset: "utf-8" },
       {
@@ -128,5 +128,9 @@ export default {
   env: {
     API_BASE_URL: 'http://13.237.139.178:8000/v2',
     PROXY_API_URL: 'http://13.237.139.178:3004'
+  },
+  // Middleware for loading spinner
+  router: {
+    middleware: 'loading'
   }
 };

@@ -41,7 +41,6 @@
   ],
   "link": [
     {
-      "hid": "shortcut-icon",
       "rel": "shortcut icon",
       "href": "/favicon.ico"
     },

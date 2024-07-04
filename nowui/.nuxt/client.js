@@ -38,6 +38,7 @@ if (!global.fetch) { global.fetch = fetch }
 let _lastPaths = []
 let app
 let router
+let store
 
 // Try to rehydrate SSR data from window
 const NUXT = window.__NUXT__ || {}
@@ -228,8 +229,8 @@ function resolveComponents (route) {
   })
 }
 
-function callMiddleware (Components, context, layout, renderState) {
-  let midd = []
+function callMiddleware (Components, context, layout) {
+  let midd = ["loading"]
   let unknownMiddleware = false
 
   // If layout is undefined, only call global middleware
@@ -260,10 +261,10 @@ function callMiddleware (Components, context, layout, renderState) {
   if (unknownMiddleware) {
     return
   }
-  return middlewareSeries(midd, context, renderState)
+  return middlewareSeries(midd, context)
 }
 
-async function render (to, from, next, renderState) {
+async function render (to, from, next) {
   if (this._routeChanged === false && this._paramChanged === false && this._queryChanged === false) {
     return next()
   }
@@ -302,12 +303,6 @@ async function render (to, from, next, renderState) {
   await setContext(app, {
     route: to,
     from,
-    error: (err) => {
-      if (renderState.aborted) {
-        return
-      }
-      app.nuxt.error.call(this, err)
-    },
     next: _next.bind(this)
   })
   this._dateLastError = app.nuxt.dateErr
@@ -320,12 +315,8 @@ async function render (to, from, next, renderState) {
   // If no Components matched, generate 404
   if (!Components.length) {
     // Default layout
-    await callMiddleware.call(this, Components, app.context, undefined, renderState)
+    await callMiddleware.call(this, Components, app.context)
     if (nextCalled) {
-      return
-    }
-    if (renderState.aborted) {
-      next(false)
       return
     }
 
@@ -337,12 +328,8 @@ async function render (to, from, next, renderState) {
         : errorLayout
     )
 
-    await callMiddleware.call(this, Components, app.context, layout, renderState)
+    await callMiddleware.call(this, Components, app.context, layout)
     if (nextCalled) {
-      return
-    }
-    if (renderState.aborted) {
-      next(false)
       return
     }
 
@@ -364,12 +351,8 @@ async function render (to, from, next, renderState) {
 
   try {
     // Call middleware
-    await callMiddleware.call(this, Components, app.context, undefined, renderState)
+    await callMiddleware.call(this, Components, app.context)
     if (nextCalled) {
-      return
-    }
-    if (renderState.aborted) {
-      next(false)
       return
     }
     if (app.context._errored) {
@@ -384,12 +367,8 @@ async function render (to, from, next, renderState) {
     layout = await this.loadLayout(layout)
 
     // Call middleware for layout
-    await callMiddleware.call(this, Components, app.context, layout, renderState)
+    await callMiddleware.call(this, Components, app.context, layout)
     if (nextCalled) {
-      return
-    }
-    if (renderState.aborted) {
-      next(false)
       return
     }
     if (app.context._errored) {
@@ -509,17 +488,9 @@ async function render (to, from, next, renderState) {
         this.$loading.finish()
       }
 
-      if (renderState.aborted) {
-        next(false)
-        return
-      }
       next()
     }
   } catch (err) {
-    if (renderState.aborted) {
-      next(false)
-      return
-    }
     const error = err || {}
     if (error.message === 'ERR_REDIRECT') {
       return this.$nuxt.$emit('routeChanged', to, from, error)
@@ -554,8 +525,7 @@ function normalizeComponents (to, ___) {
   })
 }
 
-const routeMap = new WeakMap()
-function getLayoutForNextPage (to, from, next) {
+function setLayoutForNextPage (to) {
   // Set layout
   let hasError = Boolean(this.$options.nuxt.err)
   if (this._hadError && this._dateLastError === this.$options.nuxt.dateErr) {
@@ -567,21 +537,6 @@ function getLayoutForNextPage (to, from, next) {
 
   if (typeof layout === 'function') {
     layout = layout(app.context)
-  }
-
-  routeMap.set(to, layout);
-
-  if (next) next();
-}
-
-function setLayoutForNextPage(to) {
-  const layout = routeMap.get(to)
-  routeMap.delete(to)
-
-  const prevPageIsError = this._hadError && this._dateLastError === this.$options.nuxt.dateErr
-
-  if (prevPageIsError) {
-    this.$options.nuxt.err = null
   }
 
   this.setLayout(layout)
@@ -681,13 +636,6 @@ function hotReloadAPI(_app) {
   let $components = getNuxtChildComponents(_app.$nuxt, [])
 
   $components.forEach(addHotReload.bind(_app))
-
-  if (_app.context.isHMR) {
-    const Components = getMatchedComponents(router.currentRoute)
-    Components.forEach((Component) => {
-      Component.prototype.constructor = Component
-    })
-  }
 }
 
 function addHotReload ($component, depth) {
@@ -780,6 +728,7 @@ async function mountApp (__app) {
   // Set global variables
   app = __app.app
   router = __app.router
+  store = __app.store
 
   // Create Vue instance
   const _app = new Vue(app)
@@ -791,7 +740,6 @@ async function mountApp (__app) {
     // Add afterEach router hooks
     router.afterEach(normalizeComponents)
 
-    router.beforeResolve(getLayoutForNextPage.bind(_app))
     router.afterEach(setLayoutForNextPage.bind(_app))
 
     router.afterEach(fixPrepatch.bind(_app))
@@ -820,22 +768,11 @@ async function mountApp (__app) {
   _app.$loading = {} // To avoid error while _app.$nuxt does not exist
   if (NUXT.error) {
     _app.error(NUXT.error)
-    _app.nuxt.errPageReady = true
   }
 
   // Add beforeEach router hooks
   router.beforeEach(loadAsyncComponents.bind(_app))
-
-  // Each new invocation of render() aborts previous invocation
-  let renderState = null
-  const boundRender = render.bind(_app)
-  router.beforeEach((to, from, next) => {
-    if (renderState) {
-      renderState.aborted = true
-    }
-    renderState = { aborted: false }
-    boundRender(to, from, next, renderState)
-  })
+  router.beforeEach(render.bind(_app))
 
   // Fix in static: remove trailing slash to force hydration
   // Full static, if server-rendered: hydrate, to allow custom redirect to generated page
@@ -845,15 +782,10 @@ async function mountApp (__app) {
     return mount()
   }
 
-  const clientFirstLayoutSet =  () => {
-     getLayoutForNextPage.call(_app, router.currentRoute)
-    setLayoutForNextPage.call(_app, router.currentRoute)
-  }
-
   // First render on client-side
   const clientFirstMount = () => {
     normalizeComponents(router.currentRoute, router.currentRoute)
-    clientFirstLayoutSet()
+    setLayoutForNextPage.call(_app, router.currentRoute)
     checkForErrors(_app)
     // Don't call fixPrepatch.call(_app, router.currentRoute, router.currentRoute) since it's first render
     mount()
@@ -881,6 +813,5 @@ async function mountApp (__app) {
         errorHandler(err)
       }
     })
-  },
-  { aborted: false })
+  })
 }

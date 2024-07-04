@@ -9,18 +9,18 @@
       <template slot="navbar-menu">
         <!-- Main Dropdown -->
         <drop-down tag="li" title="Main" class="nav-item">
-          <nav-link to="#">Link 1</nav-link>
-          <nav-link to="#">Link 2</nav-link>
-          <nav-link to="#">Link 3</nav-link>
-          <nav-link to="#">Link 4</nav-link>
-          <nav-link to="#">Link 5</nav-link>
-          <nav-link to="#">Link 6</nav-link>
+          <nav-link to="/about-us">About Us</nav-link>
+          <nav-link to="/contact-us">Contact Us</nav-link>
+          <nav-link to="/products">Products</nav-link>
+          <nav-link to="/services">Services</nav-link>
+          <nav-link to="/blog">Blog</nav-link>
+          <nav-link to="/shop">Shop</nav-link>
         </drop-down>
         <!-- Account Dropdown -->
         <drop-down tag="li" title="Account" class="nav-item">
-          <nav-link to="#">Link 1</nav-link>
-          <nav-link to="#">Link 2</nav-link>
-          <nav-link to="#">Link 3</nav-link>
+          <nav-link to="/login">Login</nav-link>
+          <nav-link to="/signup">Sign Up</nav-link>
+          <nav-link to="my-account">My Account</nav-link>
         </drop-down>
         <!-- Additional Dropdown -->
         <drop-down tag="li" title="Additional" class="nav-item">

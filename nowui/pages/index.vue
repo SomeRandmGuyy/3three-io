@@ -81,8 +81,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="title">Simpler. Smarter. Faster.</h2>
-                        <h4 class="description">The CloudCheckr Cloud Management Platform (CMP) provides full visibility and control to reduce costs, improve cybersecurity posture, and automate critical tasks.</h4>
+                        <h2 class="title">Cloud. VPN. Ticketing.</h2>
+                        <h4 class="description">We offer fantastic supplementary services for supporting our primary good and services.
+                            We provide all around service synergy to make us the one stop shop for everything web services.</h4>
                     </div>
                 </div>
                 <div class="row">
@@ -91,8 +92,8 @@
                             <div class="icon icon-success icon-circle">
                                 <i class="now-ui-icons objects_globe"></i>
                             </div>
-                            <h4 class="info-title">Asset Management</h4>
-                            <p class="description">Cross-account dashboards provide sophisticated reporting for enterprise.</p>
+                            <h4 class="info-title">NextCloud Hub</h4>
+                            <p class="description">One of the best enterprise ready private cloud hubs on the market.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -100,8 +101,8 @@
                             <div class="icon icon-info icon-circle">
                                 <i class="now-ui-icons education_atom"></i>
                             </div>
-                            <h4 class="info-title">Resource Utilization</h4>
-                            <p class="description">CloudCheckr provides summary and detailed usage statistics for resources.</p>
+                            <h4 class="info-title">WireGuard VPN</h4>
+                            <p class="description">An enterprise ready VPN like no other. Experience all your devices on the same IP.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -109,8 +110,8 @@
                             <div class="icon icon-success icon-circle">
                                 <i class="now-ui-icons tech_watch-time"></i>
                             </div>
-                            <h4 class="info-title">Self-Healing</h4>
-                            <p class="description">CloudCheckr enables users to save money, time, and effort.</p>
+                            <h4 class="info-title">Ticketing Systems</h4>
+                            <p class="description">From UVdesk to Zammad and many more we offer ticketing systems for customer enquiries.</p>
                         </div>
                     </div>
                 </div>
@@ -121,9 +122,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6 ml-auto mr-auto text-center">
-                            <h2 class="title">Pick the best plan for you</h2>
+                            <h2 class="title">Explore our hosting plans</h2>
                             <tabs pills type="success" centered>
-                                <tab-pane label="Legal Entity"></tab-pane>
+                                <tab-pane label="Business"></tab-pane>
                                 <tab-pane label="Individual"></tab-pane>
                             </tabs>
                         </div>
@@ -131,27 +132,27 @@
                     <div class="row">
                         <div class="col-md-4">
                             <card type="pricing" plain>
-                                <h6 class="category">Enterprise</h6>
+                                <h6 class="category">Basic</h6>
                                 <h1 class="card-title">
                                     <small>$</small>
-                                    59
+                                    15
                                 </h1>
                                 <ul>
                                     <li>
-                                        <b>10GB</b> Disk Space
+                                        <b>1GB</b> Cloud Storage
                                     </li>
                                     <li>
-                                        <b>100GB</b> Monthly Bandwidth
+                                        <b>Unlimited</b> Monthly Bandwidth
                                     </li>
                                     <li>
-                                        <b>20</b> Email Accounts
+                                        <b>1</b> User Account
                                     </li>
                                     <li>
-                                        <b>Unlimited</b> subdomains
+                                        <b>Free</b> SSL Certificate
                                     </li>
                                 </ul>
                                 <n-button type="success" round>
-                                    Sign Up
+                                    Buy Now
                                 </n-button>
                             </card>
                         </div>
@@ -161,27 +162,27 @@
                                   class="card-background"
                                   style="background-image: url('img/pricing2.jpg')">
 
-                                <h6 class="category text-info">Professional</h6>
+                                <h6 class="category text-info">Premium</h6>
                                 <h1 class="card-title">
                                     <small>$</small>
-                                    29
+                                    25
                                 </h1>
                                 <ul>
                                     <li>
-                                        <b>5GB</b> Disk Space
+                                        <b>5GB</b> Cloud Storage
                                     </li>
                                     <li>
-                                        <b>50GB</b> Monthly Bandwidth
+                                        <b>Unlimited</b> Monthly Bandwidth
                                     </li>
                                     <li>
-                                        <b>10</b> Email Accounts
+                                        <b>1</b> User Account
                                     </li>
                                     <li>
-                                        <b>Unlimited</b> subdomains
+                                        <b>Free</b> SSL Certificate
                                     </li>
                                 </ul>
                                 <n-button class="btn-neutral" round>
-                                    Sign Up
+                                    Buy Now
                                 </n-button>
 
                             </card>
@@ -189,27 +190,27 @@
                         <div class="col-md-4">
                             <card type="pricing" plain>
 
-                                <h6 class="category">Standard</h6>
+                                <h6 class="category">Enterprise</h6>
                                 <h1 class="card-title">
                                     <small>$</small>
-                                    17
+                                    70
                                 </h1>
                                 <ul>
                                     <li>
-                                        <b>2GB</b> Disk Space
+                                        <b>10GB</b> Cloud Storage
                                     </li>
                                     <li>
-                                        <b>25GB</b> Monthly Bandwidth
+                                        <b>Unlimited</b> Monthly Bandwidth
                                     </li>
                                     <li>
-                                        <b>5</b> Email Accounts
+                                        <b>5</b> User Accounts
                                     </li>
                                     <li>
-                                        <b>Unlimited</b> subdomains
+                                        <b>Free</b> SSL Certificate
                                     </li>
                                 </ul>
                                 <a href="#pablo" class="btn btn-success btn-round">
-                                    Get Started
+                                    Buy Now
                                 </a>
 
                             </card>
@@ -220,8 +221,8 @@
         </div>
         <div class="section section-contact-us text-center">
             <div class="container">
-                <h2 class="title">Want to work with us?</h2>
-                <p class="description">Your project is very important to us.</p>
+                <h2 class="title">Questions or Queries?</h2>
+                <p class="description">We are happy to compete for your business.</p>
                 <div class="row">
                     <div class="col-lg-6 text-center ml-auto mr-auto col-md-8">
                         <fg-input
