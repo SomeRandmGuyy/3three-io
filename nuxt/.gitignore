@@ -8,4 +8,15 @@ node_modules
 dist
 yarn.lock
 pnpm-lock.yaml
-package-lock.json
+\\package-lock.json
+/laravel/node_modules
+/laravel/vendor
+/laravel/storage/*.key
+/laravel/public/storage
+/laravel/.env
+/laravel/.env.backup
+/laravel.phpunit.result.cache
+/laravel/npm-debug.log
+/laravel/yarn-error.log
+/laravel/Homestead.json
+/laravel/Homestead.yaml

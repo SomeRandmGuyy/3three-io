@@ -1,0 +1,14 @@
+# Dockerfile.dev
+FROM node:18
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+# Build the application
+RUN npm run build
+
+CMD ["node", ".output/server/index.mjs"]

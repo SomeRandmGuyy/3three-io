@@ -126,10 +126,14 @@ import { useVuelidate } from '@vuelidate/core';
 import { required, email, helpers, minLength, sameAs } from '@vuelidate/validators';
 import { getErrorMessage, isError } from "~~/helpers/errorHandler";
 import { useRouter } from "vue-router";
+import axios from 'axios';
+import { reactive, computed } from 'vue';
+
 definePageMeta({
   layout: false,
   middleware: ["guest"],
 });
+
 const router = useRouter();
 const authStore = useAuthStore();
 const formData = reactive({
@@ -174,10 +178,11 @@ const submitForm = async () => {
     }
   } else {
     try {
-      await authStore.register(formData);
-      router.push({ path: "/dashboards/default" })
+      const response = await axios.post(`${process.env.API_BASE_URL}/register`, formData);
+      await authStore.setToken(response.data.token);
+      router.push({ path: "/dashboards/default" });
     } catch (error) {
-      await useToast("error", error.message);
+      await useToast("error", error.response.data.message || error.message);
     }
   }
 };
