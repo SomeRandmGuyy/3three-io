@@ -10,6 +10,9 @@ use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use LaravelJsonApi\Laravel\Http\Controllers\JsonApiController;
+use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
+use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,16 +212,24 @@ Route::get('/wp-pricing', function () {
 Route::post('/api/login', [ApiController::class, 'login']);
 
 Route::prefix('v2')->middleware('json.api')->group(function () {
-    Route::post('/login', LoginController::class)->name('login');
-    Route::post('/register', RegisterController::class);
-    Route::post('/logout', LogoutController::class)->middleware('auth:api');
-    Route::post('/password-forgot', ForgotPasswordController::class);
-    Route::post('/password-reset', ResetPasswordController::class)->name('password.reset');
+    Route::post('/login', [LoginController::class, 'store'])->name('api.login');
+    Route::post('/register', [RegisterController::class, 'store'])->name('api.register');
+    Route::post('/logout', [LogoutController::class, 'store'])->middleware('auth:api')->name('api.logout');
+    Route::post('/password-forgot', [ForgotPasswordController::class, 'store'])->name('api.password.forgot');
+    Route::post('/password-reset', [ResetPasswordController::class, 'store'])->name('api.password.reset');
+    Route::get('me', [MeController::class, 'readProfile'])->name('api.me.read');
+    Route::patch('me', [MeController::class, 'updateProfile'])->name('api.me.update');
+    Route::post('/uploads/{resource}/{id}/{field}', [UploadController::class, 'store'])->name('api.uploads.store');
 });
 
-Route::get('me', [MeController::class, 'readProfile']);
-Route::patch('me', [MeController::class, 'updateProfile']);
-Route::post('/uploads/{resource}/{id}/{field}', UploadController::class);
+JsonApiRoute::server('v2')->prefix('v2')->resources(function (ResourceRegistrar $server) {
+    $server->resource('categories', JsonApiController::class);
+    $server->resource('items', JsonApiController::class);
+    $server->resource('permissions', JsonApiController::class)->only('index');
+    $server->resource('roles', JsonApiController::class);
+    $server->resource('tags', JsonApiController::class);
+    $server->resource('users', JsonApiController::class);
+});
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
