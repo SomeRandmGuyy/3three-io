@@ -31,6 +31,12 @@ async function start() {
         },
       })(req, res);
     } else {
+      // Set CORS headers
+      if (isDev) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, content-type, Authorization');
+      }
       nuxt.render(req, res, parsedUrl);
     }
   });

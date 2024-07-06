@@ -87,8 +87,8 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
   runtimeConfig: {
     public: {
-      apiBaseUrl: 'http://13.237.139.178:8000/v2',
-      proxyApiUrl: 'http://13.237.139.178:3002'
+      apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:8000/v2',
+      proxyApiUrl: process.env.PROXY_API_URL || 'http://localhost:3002'
     }
   },
   vite: {
@@ -96,7 +96,12 @@ export default defineNuxtConfig({
       target: 'esnext'
     },
     server: {
-      port: 3001
+      port: process.env.NUXT_PORT || 3001,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+      }
     }
   },
   router: {
