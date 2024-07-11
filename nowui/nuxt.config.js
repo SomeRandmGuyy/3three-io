@@ -19,6 +19,7 @@ export default {
         { name: 'components', path: '/components', component: resolve(__dirname, 'pages/components.vue') },
         { name: 'contact', path: '/contact', component: resolve(__dirname, 'pages/contact.vue') },
         { name: 'contact-us', path: '/contact-us', component: resolve(__dirname, 'pages/contact-us.vue') },
+        { name: 'contactus', path: '/contactus', component: resolve(__dirname, 'pages/contactus.vue') },
         { name: 'demo', path: '/demo', component: resolve(__dirname, 'pages/demo.vue') },
         { name: 'ecommerce', path: '/ecommerce', component: resolve(__dirname, 'pages/ecommerce.vue') },
         { name: 'index', path: '/', component: resolve(__dirname, 'pages/index.vue') },
@@ -64,8 +65,7 @@ export default {
       { charset: "utf-8" },
       {
         name: "viewport",
-        content:
-          "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no",
+        content: "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no",
       },
       {
         hid: "description",
@@ -90,46 +90,32 @@ export default {
       },
     ],
   },
-  // Customize the progress-bar color
   loading: { color: "#fff" },
-  // Global CSS
   css: ["~/assets/sass/now-ui-kit.scss", "~/assets/sass/demo.scss"],
-  // Plugins to load before mounting the App
   plugins: [
     { src: "~/plugins/globalDirectives.js", ssr: false },
     { src: "~/plugins/element-ui.js" },
     { src: "~/plugins/now-ui-kit" },
   ],
-  // Nuxt.js modules
-  modules: ["@nuxtjs/pwa"],
-  // Build configuration
+  modules: [
+    '@nuxtjs/pwa',
+    '@nuxtjs/axios'
+  ],
+  axios: {
+    baseURL: '/',
+  },
   build: {
     extractCSS: process.env.NODE_ENV === "production",
-    babel: {
-      plugins: [
-        [
-          "component",
-          {
-            libraryName: "element-ui",
-            styleLibraryName: "theme-chalk",
-          },
-        ],
-      ],
-    },
-    // You can extend webpack config here
     extend(config, ctx) {}
   },
-  // Server configuration to enforce port 3003
   server: {
-    port: 3003, // default: 3000
-    host: '0.0.0.0' // default: localhost
+    port: 3003,
+    host: '0.0.0.0'
   },
-  // Environment variables
   env: {
     API_BASE_URL: 'http://13.237.139.178:8000/v2',
     PROXY_API_URL: 'http://13.237.139.178:3004'
   },
-  // Middleware for loading spinner
   router: {
     middleware: 'loading'
   }
