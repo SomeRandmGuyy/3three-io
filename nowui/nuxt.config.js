@@ -1,11 +1,8 @@
+require('dotenv').config();
+
 export default {
-  // Enabling SPA mode
   mode: 'spa',
-
-  // Enabling Static Site Generation
   target: 'static',
-
-  // Headers of the page
   router: {
     base: "/",
     linkExactActiveClass: "active",
@@ -65,7 +62,7 @@ export default {
       { charset: "utf-8" },
       {
         name: "viewport",
-        content: "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit=no",
+        content: "width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=1, shrink-to-fit-no",
       },
       {
         hid: "description",
@@ -99,7 +96,8 @@ export default {
   ],
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
   ],
   axios: {
     baseURL: '/',
