@@ -337,6 +337,7 @@
 
   export default {
     name: 'ecommerce-page',
+    layout: 'white-nav',
     components: {
       Card,
       InfoSection,
