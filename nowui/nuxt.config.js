@@ -1,4 +1,5 @@
 require('dotenv').config();
+const sass = require('sass');
 
 export default {
   mode: 'spa',
@@ -104,7 +105,15 @@ export default {
   },
   build: {
     extractCSS: process.env.NODE_ENV === "production",
-    extend(config, ctx) {}
+    extend(config, ctx) {},
+    loaders: {
+      scss: {
+        implementation: sass,
+      },
+    },
+  },
+  generate: {
+    dir: 'dist'
   },
   server: {
     port: 3003,
